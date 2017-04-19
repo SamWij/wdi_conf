@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "WDI Conference" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -12,30 +12,8 @@
   </head>
 
   <body>
-    <!-- the trigger -->
-    <div class="curtain-menu-button" id ="data-curtain-menu-button">
-      <div class="curtain-menu-button-toggle">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-      </div>
-    </div>
-
-    <!-- the menu  -->
-    <div class="curtain-menu">
-      <div class="curtain"></div>
-      <div class="curtain"></div>
-      <div class="curtain"></div>
-      <div class="curtain-menu-wrapper">
-        <ul class="curtain-menu-list menu vertical">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Work</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-    </div>
 
     <%= yield %>
-    <%= render 'layouts/footer' %>
+
   </body>
 </html>
