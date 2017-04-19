@@ -11,4 +11,7 @@ Rails.application.routes.draw do
 
   root 'page#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get '/login', to: 'page#login'
+  post '/session', to: 'session#create'
 end

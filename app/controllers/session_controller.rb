@@ -1,8 +1,16 @@
-class SessionController < ApplicationController 
-	def new 
-	end	
+class SessionController < ApplicationController
+	def new
+	end
 
 	def create
+		user = User.find_by(email: params[:email])
+		if user && user.authenticate(params[:password])
+			session[:user_id] = user.id
+			redirect_to '/dashboard'
+		else
+			#redirect to failed login page?
+			redirect_to '/'
+		end
 	end
 
 	def register
@@ -11,5 +19,4 @@ class SessionController < ApplicationController
 	def destroy
 	end
 
-end 
-
+end
