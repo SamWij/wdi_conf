@@ -1,17 +1,16 @@
 Rails.application.routes.draw do
   get 'user/new'
-
   get 'user/create'
-
   get 'user/destroy'
 
-  # get 'page/index', to: 'page#index'
-
-  get '/dashboard', to: 'dashboard#index'
-
-  root 'page#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/login', to: 'page#login'
   post '/session', to: 'session#create'
+  delete '/session', to: 'session#destroy'
+
+  get '/dashboard', to: 'dashboard#index'
+
+
+
+  root 'page#index'
 end
