@@ -1,0 +1,13 @@
+<h1>PAYMENT PAGE</h1>
+
+<%= form_tag '' , method:'post' do %>
+  <label for="first_name">First Name</label>
+  <input type="text" name="first_name" value="">
+  <label for="last_name">Last Name</label>
+  <input type="text" name="last_name" value="">
+  <label for="email">Email</label>
+  <input type="email" name="email" value="">
+  <label for="">Number of Tickets</label>
+  <input type="range" name="number_tickets" min="1" max="10" value="">
+  <button>Login</button>
+<% end %>
