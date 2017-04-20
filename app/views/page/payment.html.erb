@@ -11,4 +11,24 @@
     <input type="range" name="number_tickets" min="1" max="10" value="">
     <button>Login</button>
   <% end %>
+  <%= form_tag charges_path, id:"charge-form" do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount:US$10.00</span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="WDI Convention Tickets"
+          data-amount="1000"
+          data-locale="auto"></script>
+          <%= hidden_field_tag 'stripeToken' %>
+          <%= hidden_field_tag 'stripeEmail' %>
+<% end %>
 </div>

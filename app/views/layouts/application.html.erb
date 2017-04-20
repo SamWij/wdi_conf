@@ -11,15 +11,10 @@
   </head>
 
   <body>
-    <!-- the trigger -->
-    <!-- <div class="curtain-menu-button" id="data-curtain-menu-button">
-      <div class="curtain-menu-button-toggle">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-      </div>
-    </div>
 
-    <!-- the menu  
+
+    <!-- the menu  -->
+    <%= render 'layouts/header' %>
     <div class="curtain-menu">
       <div class="curtain"></div>
       <div class="curtain"></div>
@@ -32,5 +27,9 @@
 
     <%= yield %>
 
+    <%= render 'layouts/footer' %>
+    <div id="scroll-button" class="hide-scroll">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </div>
   </body>
 </html>
