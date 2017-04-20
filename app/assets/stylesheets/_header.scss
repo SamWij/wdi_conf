@@ -110,6 +110,13 @@ $curtain-menu-button-size: rem-calc(40);
 $topbar-responsive-bg: #2c3840;
 $topbar-responsive-animation-type: fade-in; // or use slide-down or none
 
+.top-bar-right {
+  ul{
+    display: flex;
+    align-items: center;
+  }
+}
+
 .topbar-responsive {
   background: $topbar-responsive-bg;
   padding: 1rem 1.5rem;
