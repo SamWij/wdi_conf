@@ -1,0 +1,11 @@
+<h1>LOGIN PAGE</h1>
+<div class="row align-middle">
+  <%= form_tag '/session', method: 'post' do %>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="email">Email</label>
+    <input type="email" name="email" value="">
+    <label for="password">Password</label>
+    <input type="text" name="password" value="">
+    <button>Login</button>
+  <% end %>
+</div>

@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index'
 
 
+  get '/api/speakers', to: 'api/speakers#get_speakers'
+
+  get '/profiles', to: 'page#profiles'
 
   root 'page#index'
 end
