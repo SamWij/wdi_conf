@@ -113,5 +113,6 @@ $subnav-hero-transition: all 0.35s ease-in-out;
 
 
 .wrapper {
-  z-index: 2000;
+  position:absolute;
+  top:65px;
 }
