@@ -71,7 +71,7 @@ $curtain-menu-button-size: rem-calc(40);
   }
 
   &:nth-child(odd){
-    background: darken($curtain-menu-color, 20%);
+    background: darken($curtain-menu-color, 10%);
   }
 }
 
