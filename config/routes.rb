@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index'
 
 
-
+  get '/payment', to: 'page#payment'
+  resources :charges
   root 'page#index'
 end
