@@ -1,34 +1,35 @@
+<script src="https://checkout.stripe.com/checkout.js"></script>
 <h1>PAYMENT PAGE</h1>
 <div class="row align-middle">
-  <%= form_tag '' , method:'post' do %>
-    <label for="first_name">First Name</label>
-    <input type="text" name="first_name" value="">
-    <label for="last_name">Last Name</label>
-    <input type="text" name="last_name" value="">
-    <label for="email">Email</label>
-    <input type="email" name="email" value="">
-    <label for="">Number of Tickets</label>
-    <input type="range" name="number_tickets" min="1" max="10" value="">
-    <button>Login</button>
-  <% end %>
   <%= form_tag charges_path, id:"charge-form" do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-    <label class="amount">
-      <span>Amount:US$10.00</span>
-    </label>
-  </article>
+  <%= hidden_field_tag 'stripeToken' %>
+  <%= hidden_field_tag 'stripeEmail' %>
+  <label for="first_name">First Name</label>
+  <input type="text" name="first_name" value="">
+  <label for="last_name">Last Name</label>
+  <input type="text" name="last_name" value="">
+  <label for="tickets amount">Number of tickets</label>
+  <input class="tickets" name="tickets"type="number">
+  <button id="buy"class="button round success"> Get Tickets Now </button>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="WDI Convention Tickets"
-          data-amount="1000"
-          data-locale="auto"></script>
-          <%= hidden_field_tag 'stripeToken' %>
-          <%= hidden_field_tag 'stripeEmail' %>
-<% end %>
+  <script>
+  var handler = StripeCheckout.configure({
+    key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+    token: function(token,arg){
+    	document.getElementById("stripeToken").value = token.id;
+    	document.getElementById("stripeEmail").value = token.email;
+    	document.getElementById("charge-form").submit();
+    }
+  });
+
+  document.getElementById('buy').addEventListener('click',function(e){
+    handler.open({
+      name: 'WDI Conference Tickets Purchase',
+      description: $('.tickets').val() + ' x Tickets (US$100.00 EA)' ,
+      amount: +($('.tickets').val())*(10000)
+    });
+    e.preventDefault();
+  });
+  </script>
+  <% end %>
 </div>
