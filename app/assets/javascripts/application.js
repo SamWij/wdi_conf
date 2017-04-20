@@ -13,6 +13,7 @@
 //= require jquery
 //= require pagescroll
 //= require handlebars
+//= require underscore
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
