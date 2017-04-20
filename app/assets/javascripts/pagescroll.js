@@ -1,5 +1,5 @@
 $(window).scroll(function(){
-  debugger
+  // debugger
   // $('scroll-button').removeClass('hidden');
 });
 $('scroll-button').on('click',function(){
