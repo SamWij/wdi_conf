@@ -1,6 +1,12 @@
 $(function() {
   var isAnimating = false;
 
+  $('.map-container')
+	.click(function(){
+			$(this).find('iframe').addClass('clicked')})
+	.mouseleave(function(){
+			$(this).find('iframe').removeClass('clicked')});
+
   $(document).scroll(function(element){
     var scrollDetect = element.currentTarget.scrollingElement.scrollTop
     if(scrollDetect>0){
