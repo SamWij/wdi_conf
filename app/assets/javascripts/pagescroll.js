@@ -15,7 +15,6 @@ $(function() {
       isAnimating = true;
 
       $("body").animate({ scrollTop: 0 }, 600, function(){
-        console.log("never ending")
         isAnimating = false;
       });
     }
