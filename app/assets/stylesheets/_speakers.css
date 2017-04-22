@@ -12,34 +12,24 @@
   display: block;
   width: 100%;
   height: 300px;
+    background-size: 100% 100%;
 }
 
 .sp1 {
-
-  background-image: url('<%= asset_path("profile1.jpg") %> ');
-  background-size: 100% 100%;
+  background-image: url('profile1.jpg');
 }
 
 .sp2 {
-  background-image: url('<%= asset_path("profile2.jpg") %> ');
-  background-size: 100% 100%;
+  background-image: url('profile2.jpg');
 }
 
 .sp3 {
-  background-image: url('<%= asset_path("profile3.jpg") %> ');
-  background-size: 100% 100%;
+  background-image: url('profile3.jpg');
 }
 
 .sp4 {
-  background-image: url('<%= asset_path("profile4.jpg") %> ');
-  background-size: 100% 100%;
+  background-image: url('profile4.jpg');
 }
-
-.container {
-  position: relative;
-  width: 50%;
-}
-
 
 .overlay {
   position: absolute;
