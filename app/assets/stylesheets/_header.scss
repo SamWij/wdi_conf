@@ -12,7 +12,7 @@
 .header-hero{
   width: 100%;
   padding: 8rem 0;
-  background: url('/assets/header.jpg') center center;
+  background: asset-path("header.jpg") center center;
   background-size: contain;
   background-color: rgba(255,127,102, 0.9);
   background-blend-mode: lighten;
