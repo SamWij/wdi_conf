@@ -1,6 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+// @import url('https://fonts.googleapis.com/css?family=PT+Sans');
 $grey: #3E454C; // rgb(62,69,76)
 $blue: #2185C5; // rgb(33,133,197)
 $lightblue: #7ECEFD; // rgb(126,206,253)
-$offwhit: #FFF6E5; // rgb(255,246,229)
+$offwhite: #FFF6E5; // rgb(255,246,229)
 $orange: #FF7F66; // rgb(255,127,102)
+
+
+// fonts
+$pt-sans: 'PT Sans', sans-serif;
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $pt-sans;
+}
