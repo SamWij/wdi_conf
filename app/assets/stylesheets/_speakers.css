@@ -1,5 +1,4 @@
 
-
 .speaker {
   height: 300px;
   background-repeat: no-repeat;
@@ -16,7 +15,8 @@
 }
 
 .sp1 {
-  background-image: url(profile1.jpg);
+
+  background-image: url('<%= asset_path("profile1.jpg") %> ');
   background-size: 100% 100%;
 }
 

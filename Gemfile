@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'rails_12factor', group: :production
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 #stripe for rails
 # gem 'foundation-rails'
