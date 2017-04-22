@@ -21,17 +21,17 @@
 }
 
 .sp2 {
-  background-image: url(profile2.jpg);
+  background-image: url('<%= asset_path("profile2.jpg") %> ');
   background-size: 100% 100%;
 }
 
 .sp3 {
-  background-image: url(profile3.jpg);
+  background-image: url('<%= asset_path("profile3.jpg") %> ');
   background-size: 100% 100%;
 }
 
 .sp4 {
-  background-image: url(profile4.jpg);
+  background-image: url('<%= asset_path("profile4.jpg") %> ');
   background-size: 100% 100%;
 }
 
