@@ -16,13 +16,14 @@
 
 .timeLeft {
   text-align: center;
-  font-size: 2em;
-  padding: 5%;
   color: white;
+  font-size: 3rem;
+  padding: 4rem 0;
 }
 .countdown-container{
   border: 4px solid hsl(135, 100%, 50%);
   animation: border-change 5s infinite alternate;
+  padding: 2.5rem 0;
 }
 
 @keyframes border-change {
