@@ -1,35 +1,37 @@
 <script src="https://checkout.stripe.com/checkout.js"></script>
-<h1>PAYMENT PAGE</h1>
-<div class="row align-middle">
-  <%= form_tag charges_path, id:"charge-form" do %>
-  <%= hidden_field_tag 'stripeToken' %>
-  <%= hidden_field_tag 'stripeEmail' %>
-  <label for="first_name">First Name</label>
-  <input type="text" name="first_name" value="">
-  <label for="last_name">Last Name</label>
-  <input type="text" name="last_name" value="">
-  <label for="tickets amount">Number of tickets</label>
-  <input class="tickets" name="tickets"type="number">
-  <button id="buy"class="button round success"> Get Tickets Now </button>
+<section id="payment-section" class="section">
+  <div class="container">
+    <h1 class="title">Buy Tickets</h1>
+    <%= form_tag charges_path, id:"charge-form" do %>
+    <%= hidden_field_tag 'stripeToken' %>
+    <%= hidden_field_tag 'stripeEmail' %>
+    <label class="label" for="first_name">First Name</label>
+    <input class="input is-primary" type="text" name="first_name" value="" placeholder="James">
+    <label class="label" for="last_name">Last Name</label>
+    <input class="input is-primary"type="text" name="last_name" value="" placeholder="Bond">
+    <label class="label" for="tickets amount">Number of tickets</label>
+    <input class="input is-primary" name="tickets" type="number" id="tickets" placeholder="7">
+    <button id="buy"class="button is-primary is-normal"> Get Tickets Now </button>
 
-  <script>
-  var handler = StripeCheckout.configure({
-    key: '<%= Rails.configuration.stripe[:publishable_key] %>',
-    token: function(token,arg){
-    	document.getElementById("stripeToken").value = token.id;
-    	document.getElementById("stripeEmail").value = token.email;
-    	document.getElementById("charge-form").submit();
-    }
-  });
-
-  document.getElementById('buy').addEventListener('click',function(e){
-    handler.open({
-      name: 'WDI Conference Tickets Purchase',
-      description: $('.tickets').val() + ' x Tickets (US$100.00 EA)' ,
-      amount: +($('.tickets').val())*(10000)
+    <script>
+    var handler = StripeCheckout.configure({
+      key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+      token: function(token,arg){
+        document.getElementById("stripeToken").value = token.id;
+        document.getElementById("stripeEmail").value = token.email;
+        document.getElementById("charge-form").submit();
+      }
     });
-    e.preventDefault();
-  });
-  </script>
-  <% end %>
-</div>
+
+    document.getElementById('buy').addEventListener('click',function(e){
+      handler.open({
+        name: 'WDI Conference Tickets Purchase',
+        description: $('#tickets').val() + ' x Tickets (US$100.00 EA)' ,
+        amount: +($('#tickets').val())*(10000)
+      });
+      e.preventDefault();
+    });
+    </script>
+    <% end %>
+  </div>
+</section>
