@@ -1,3 +1,6 @@
+.columns.speakers{
+   margin-bottom: 0; 
+}
 
 .speaker {
   height: 300px;
@@ -8,11 +11,12 @@
 .sp2,
 .sp3,
 .sp4 {
-  background-size: contain;
+  background-size: cover;
   display: block;
-  width: 100%;
+  width: auto;
   height: 300px;
-    background-size: 100% 100%;
+  background-position: center center;
+  overflow: hidden;
 }
 
 .sp1 {
