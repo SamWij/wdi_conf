@@ -25,6 +25,26 @@
   padding: 2.5rem 0;
 }
 
+#form-login {
+  position: absolute !important;
+  top: 8%;
+  right: 2%;
+  z-index: 20;
+}
+#form-login label{
+  line-height: 5px;
+}
+#form-login input{
+  width: 30%;
+  display:inline-block;
+}
+.form-hidden{
+  display: none;
+}
+.form-logout{
+  margin-top: 7px;
+}
+
 @keyframes border-change {
   0% {
     background-color: #2185C5;
