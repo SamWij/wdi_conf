@@ -1,0 +1,56 @@
+<!-- attach handlebars to this -->
+<section class="columns speaker-container"></section>
+
+<script id="speaker-profile-template" type="text/handlebars" charset="utf-8">
+  <div class="column profile-image">
+  </div>
+
+  <div class="column profile-information">
+    <div class="speaker-list">
+      <% @all_speakers.each do |speaker| %>
+        <a class="profiles-link" data-id="<%= speaker.id %>"><%= speaker.name %></a>
+      <% end %>
+    </div>
+    <h1 class="title">{{ name }}</h1>
+    <h2 class="subtitle">{{ job_title }}</h2>
+
+    <h3 class="talk-title">" {{ talk_title }} "</h3>
+
+    <h3 class="location"> {{ talk_location }} </h3>
+    <a href="http://twitter.com/{{ twitter }}">
+      <i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i>
+    </a>
+    <a href="http://{{ linkedin }}">
+      <i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i>
+    </a>
+
+  </div>
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var speakers = <%= @speakers.html_safe %> ;
+
+  function showProfileInfo(currentSpeaker){
+    $('.speaker-container').empty();
+    var speaker = currentSpeaker;
+    var profileTemplate = Handlebars.compile( $('#speaker-profile-template').html() );
+    var compiledProfile = profileTemplate(speaker);
+    $('.speaker-container').append(compiledProfile);
+    $('.profile-image').css("background-image", 'url(assets/'+ currentSpeaker.image_url + ')' );
+
+  };
+
+  function profileNameClick(event){
+    var speakerName = $(event.target);
+    var speakerId = speakerName.data('id');
+    var result = speakers.filter(function (obj) {
+      return obj.id === speakerId;
+    })[0];
+
+    showProfileInfo(result);
+  }
+
+  showProfileInfo(speakers[0]);
+  $('.speaker-container').on('click', '.profiles-link', profileNameClick);
+
+</script>

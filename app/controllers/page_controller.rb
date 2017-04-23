@@ -3,7 +3,7 @@ class PageController < ApplicationController
   end
 
 
-  def profiles
+  def speakers
     @all_speakers = Speaker.all
     @speakers = Speaker.all.to_json
   end
