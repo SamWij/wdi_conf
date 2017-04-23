@@ -1,22 +1,33 @@
-<div class="expanded row speaker-container"></div>
+<!-- attach handlebars to this -->
+<section class="columns speaker-container"></section>
 
 <script id="speaker-profile-template" type="text/handlebars" charset="utf-8">
-<div class="profiles-bg-image"></div>
-<div class="large-6 large-offset-6 columns profiles-information">
-  <h1>{{ name }}</h1>
-  <h2>{{ job_title }}</h2>
-  <p> {{ bio }} </p>
-  <h3> {{ talk_title }} </h3>
+  <div class="column profile-image">
+  </div>
 
-  <% @all_speakers.each do |speaker| %>
-    <a class="profiles-link" data-id="<%= speaker.id %>"><%= speaker.name %></a>
-  <% end %>
-</div>
+  <div class="column profile-information">
+    <% @all_speakers.each do |speaker| %>
+      <a class="profiles-link" data-id="<%= speaker.id %>"><%= speaker.name %></a>
+    <% end %>
+
+    <h1 class="title">{{ name }}</h1>
+    <h2 class="subtitle">{{ job_title }}</h2>
+
+    <h3 class=""> {{ talk_title }} </h3>
+    <h3 class="">"{{ talk_description }} "</h3>
+    <h3> {{ talk_location }} </h3>
+    <a href="http://twitter.com/{{ twitter }}">
+      <i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i>
+    </a>
+    <a href="http://{{ linkedin }}">
+      <i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i>
+    </a>
+
+  </div>
 </script>
 
 <script type="text/javascript" charset="utf-8">
   var speakers = <%= @speakers.html_safe %> ;
-	var apiUrl = '/api/speakers';
 
   function showProfileInfo(currentSpeaker){
     $('.speaker-container').empty();
@@ -24,21 +35,20 @@
     var profileTemplate = Handlebars.compile( $('#speaker-profile-template').html() );
     var compiledProfile = profileTemplate(speaker);
     $('.speaker-container').append(compiledProfile);
-  }
+    $('.profile-image').css("background-image", 'url(assets/'+ currentSpeaker.image_url + ')' );
+
+  };
 
   function profileNameClick(event){
     var speakerName = $(event.target);
     var speakerId = speakerName.data('id');
-    // console.log(speakerId);
-
     var result = speakers.filter(function (obj) {
       return obj.id === speakerId;
     })[0];
 
-    // console.log(result);
-
     showProfileInfo(result);
   }
+
   showProfileInfo(speakers[0]);
   $('.speaker-container').on('click', '.profiles-link', profileNameClick);
 
