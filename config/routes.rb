@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get '/api/speakers', to: 'api/speakers#get_speakers'
 
-  get '/profiles', to: 'page#profiles'
+  get '/speakers', to: 'page#speakers'
 
   get '/payment', to: 'page#payment'
   resources :charges

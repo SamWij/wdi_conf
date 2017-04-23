@@ -1,3 +1,22 @@
+.columns.speaker-container {
+  margin-bottom: 0;
+}
+
+.speaker-list{
+  margin-bottom: 5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  a {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: $offwhite;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}
+
 .speaker-container{
   height: 85vh;
   background-color: rgba(33,133,197,1);
@@ -13,18 +32,19 @@
     mix-blend-mode: overlay;
   }
 
-
-
   &-information {
     position: relative;
     display: flex;
-    padding-left: 4rem;
+    padding: 0 3rem ;
     justify-content: center;
     flex-direction: column;
     height: 85vh;
     width: 100%;
+    box-sizing: border-box;
 
-    color: white;
+    .title, .subtitle, h3{
+      color: white;
+    }
 
     &-link, a {
       display: inline-block;
@@ -32,4 +52,10 @@
       color: $lightblue;
     }
   }
+}
+
+.talk-title {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-bottom: 3rem;
 }
