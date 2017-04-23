@@ -7,7 +7,6 @@ end
 #prawn is for pdf generation
 gem 'prawn'
 gem 'prawn-table'
-
 gem 'rails_12factor', group: :production
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 #stripe for rails
