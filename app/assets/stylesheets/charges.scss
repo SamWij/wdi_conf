@@ -1,3 +1,13 @@
 // Place all the styles related to the charges controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#charge-form {
+  input.input {
+    color: black;
+    font-weight: 600;
+  }
+  input.input::placeholder{
+    color: rgba(0,0,0,0.15);
+  }
+}
