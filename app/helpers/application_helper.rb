@@ -3,13 +3,18 @@ module ApplicationHelper
     user = User.find_by(id: session[:user_id])
   end
   def current_user_full_name
-    user = User.find_by(id: session[:user_id])
-    puts  user
-    #full_name = "#{user.first_name} #{user.last_name}"
+    full_name = "#{current_user.first_name} #{current_user.last_name}"
   end
 
   def current_user_email
-    user = User.find_by(id: session[:user_id])
-    user.email
+    current_user.email
+  end
+
+  def get_tickets
+    current_user.tickets
+  end
+
+  def get_tickets_count
+    get_tickets.count
   end
 end

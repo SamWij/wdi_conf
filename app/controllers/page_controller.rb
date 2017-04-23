@@ -14,16 +14,15 @@ class PageController < ApplicationController
 
   def pdf_tickets
     image = "#{Prawn::DATADIR}/images/barcode.png"
+    image = "bar.png"
     pdf = Prawn::Document.new
     pdf.text "WDI11 CONFERENCE TICKETS"
     pdf.text "Customer Name : #{current_user_full_name}"
     pdf.text "Customer Email Address : #{current_user_email}"
+    pdf.text "Total Number of Tickets : #{get_tickets_count}"
     pdf.text "#{session[:id]}"
-
-    #names = ["Sam","Soul","Mark","Gerrard"]
-    #email = ["sam@mail.com","sw@mail.com","mp@mail.com","gh@mail.com"]
     content = [ ["No","Ticket Number"] ]
-    3.times do |n|
+    get_tickets_count.times do |n|
       testing_number = SecureRandom.uuid
       content << ["#{n+1}", {:image => image}]
     end
