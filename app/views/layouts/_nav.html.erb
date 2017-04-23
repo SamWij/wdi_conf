@@ -3,7 +3,7 @@
     <div class="nav-left">
       <a href="/" class="nav-item">WDICON</a>
       <% if user_signed_in? %>
-        <a href="/" class="nav-item">Your Tickets</a>
+        <a href="/dashboard" class="nav-item">Your Tickets</a>
       <% end %>
     </div>
     <span class="nav-toggle">
@@ -14,12 +14,11 @@
     <div class="nav-right">
       <a href="/speakers" class="nav-item">Speakers</a>
       <a href="/payment" class="nav-item">Buy Tickets</a>
-      <a href="/login" class="nav-item">Login</a> <!-- will be a button -->
       <% if !user_signed_in? %>
         <a class="nav-item" id="login-button">Login</a> <!-- will be a button -->
       <% else %>
         <%= form_tag '/session', method: 'delete',class:"form-logout" do %>
-          <a class="nav-item">Logout</a>
+          <button class="button is-primary">Logout</button>
         <% end %>
       <% end %>
     </div>
