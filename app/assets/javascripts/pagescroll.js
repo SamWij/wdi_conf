@@ -27,4 +27,4 @@ function ready() {
   });
 };
 
-$(document).on('turbolinks:load', ready);
+$(document).ready(ready);
