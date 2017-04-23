@@ -1,5 +1,5 @@
 .columns.speakers{
-   margin-bottom: 0; 
+   margin-bottom: 0;
 }
 
 .speaker {
@@ -20,19 +20,19 @@
 }
 
 .sp1 {
-  background-image: url('profile1.jpg');
+  background-image: url(<%= asset_path 'profile1.jpg' %>);
 }
 
 .sp2 {
-  background-image: url('profile2.jpg');
+  background-image: url(<%= asset_path 'profile2.jpg' %>);
 }
 
 .sp3 {
-  background-image: url('profile3.jpg');
+  background-image: url(<%= asset_path 'profile3.jpg' %>);
 }
 
 .sp4 {
-  background-image: url('profile4.jpg');
+  background-image: url(<%= asset_path 'profile4.jpg' %>);
 }
 
 .overlay {
