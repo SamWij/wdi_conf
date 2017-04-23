@@ -11,9 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
+//= require jquery_ujs
 //= require pagescroll
 //= require handlebars
 //= require underscore
-//= require jquery_ujs
 //= require turbolinks
 //= require_tree .

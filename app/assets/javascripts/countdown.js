@@ -1,4 +1,4 @@
-$(document).ready(function(){
+function ready(){
   var conferenceDate = [22,5,17,9,0,0];
   var $countdown = $('.countdown-container');
   var $timeLeft = $('<p>').addClass('spin timeLeft');
@@ -28,4 +28,6 @@ $(document).ready(function(){
 
   }
 
-});
+};
+
+$(document).on('turbolinks:load', ready);
