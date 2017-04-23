@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/payment', to: 'page#payment'
   resources :charges
 
+  get '/gettickets', to:'page#pdf_tickets'
 
   root 'page#index'
 end
