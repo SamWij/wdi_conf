@@ -2,6 +2,9 @@
   <div class="container">
     <div class="nav-left">
       <a href="/" class="nav-item">WDICON</a>
+      <% if user_signed_in? %>
+        <a href="/dashboard" class="nav-item">Your Tickets</a>
+      <% end %>
     </div>
     <span class="nav-toggle">
       <span></span>
@@ -11,7 +14,22 @@
     <div class="nav-right">
       <a href="/speakers" class="nav-item">Speakers</a>
       <a href="/payment" class="nav-item">Buy Tickets</a>
-      <a href="/login" class="nav-item">Login</a> <!-- will be a button -->
+      <% if !user_signed_in? %>
+        <a class="nav-item" id="login-button">Login</a> <!-- will be a button -->
+      <% else %>
+        <%= form_tag '/session', method: 'delete',class:"form-logout" do %>
+          <button class="button is-primary">Logout</button>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </nav>
+<div id="form-login" class="form-hidden">
+  <%= form_tag '/session', method: 'post' do %>
+    <label for=""><i class="fa fa-envelope"></i></label>
+    <input type="email" name="email" value="" class="input is-primary" placeholder="email@mail.com">
+    <label for=""><i class="fa fa-lock"></i></label>
+    <input type="password" name="password" value="" class="input is-primary">
+    <button class="button is-primary">Login</button>
+  <% end %>
+</div>
