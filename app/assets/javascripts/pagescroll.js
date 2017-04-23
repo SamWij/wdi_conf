@@ -1,4 +1,4 @@
-$(function() {
+function ready() {
   var isAnimating = false;
 
   $('.map-container')
@@ -25,4 +25,6 @@ $(function() {
       });
     }
   });
-});
+};
+
+$(document).on('turbolinks:load', ready);
