@@ -3,8 +3,10 @@
 	<div class="columns">
 		<div class="column">
 			<h2 class="title">Welcome <%=@user_id.first_name%></h2>
-			<p>Ticket ID = <%=@ticket[0].ticket_number%></p>
-			<p>Purchase Date = <%=@ticket[0].created_at%></p>
+			<% get_tickets do | ticket | %>
+			<%= "#{ticket.ticket_number} purchased on #{ticket.created_at}" %>
+			<% end %>
+			<a href="/gettickets" target="_blank">Download Your Ticket(s)</a>
 		</div>
 	</div>
 </section>
